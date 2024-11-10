@@ -1,0 +1,55 @@
+# Node.js
+node_modules/
+
+# npm logs
+npm-debug.log
+yarn-debug.log
+yarn-error.log
+
+# dotenv environment files
+.env
+.env.*  # if you have multiple env files like .env.development, .env.production
+
+# Docker files
+.dockerignore
+Dockerfile
+docker-compose.yml
+
+# Logs
+logs
+*.log
+*.log.*
+
+# Redis data (if you mount volumes for Redis)
+redis-data/
+
+# MongoDB data (if you mount volumes for MongoDB)
+mongo-data/
+
+# IDE/editor files
+.vscode/
+.idea/
+
+# Operating system files
+.DS_Store
+Thumbs.db
+
+# Build outputs
+dist/
+build/
+*.tgz
+
+# Coverage directory for testing
+coverage/
+
+# PM2 logs (if you're using PM2 for process management)
+pms logs/
+
+# For macOS, if you are working on a Mac
+*.swp
+
+# Test directories
+test/
+
+# Temporary files
+tmp/
