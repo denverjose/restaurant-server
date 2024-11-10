@@ -1,0 +1,38 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongo
+    ports:
+      - "27017:27017"  # Expose MongoDB port
+    volumes:
+      - mongo-data:/data/db  
+
+  redis:
+    image: redis:latest
+    container_name: redis
+    ports:
+      - "6379:6379"  # Expose Redis port
+    volumes:
+      - redis-data:/data  
+
+  express:
+    build: .
+    container_name: express-app
+    ports:
+      - "5000:5000"  # Expose Express port
+    environment:
+      - MONGO_URI=mongodb://mongo:27017/mydb  # MongoDB connection URI
+      - REDIS_HOST=redis                      # Redis hostname
+      - REDIS_PORT=6379                       # Redis port
+      - NODE_ENV=production                   # Set Node environment to production
+    depends_on:
+      - mongodb
+      - redis
+    command: ["node", "app.js"]  # Run with Node.js in production mode
+    restart: always               # Automatically restart the container if it crashes
+
+volumes:
+  mongo-data:
+  redis-data:

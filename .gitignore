@@ -10,11 +10,6 @@ yarn-error.log
 .env
 .env.*  # if you have multiple env files like .env.development, .env.production
 
-# Docker files
-.dockerignore
-Dockerfile
-docker-compose.yml
-
 # Logs
 logs
 *.log
